@@ -1,0 +1,2 @@
+*
+.model BC848A NPN(Is=9.677E-15 Nf=0.9922 Ise=5.44E-15 Ne=2 Bf=182.1 Ikf=0.14 Vaf=143.8 Nr=0.9935 Isc=5.236E-12 Nc=1.53 Br=7.004 Ikr=0.06 Var=31.15 Rb=10 Irb=5E-06 Rbm=4 Re=0.78 Rc=0.656 Xtb=0 Eg=1.11 Xti=3 Cje=1.443E-11 Vje=0.733 Mje=0.3514 Tf=6.04E-10 Xtf=8.94 Vtf=3.78 Itf=0.2711 Ptf=0 Cjc=3.287E-12 Vjc=0.5444 Mjc=0.3954 Xcjc=0.6193 Tr=1.1E-07 Cjs=0 Vjs=0.75 Mjs=0.333 Fc=0.789)
