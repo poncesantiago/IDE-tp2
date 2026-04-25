@@ -53,8 +53,8 @@ plt.xlabel('Tensión VBE [V]');
 # Hay que elegir los puntos a ajustar con una recta
 # Seleccionar vMin y vMax para elegir un rango de puntos a ajustar por una recta
 # Este debe ser el rango de tensiones donde la curva en escala semilog se parece a una recta
-vMin = 0.238 # Valor mínimo del rango (en volts)
-vMax = 0.676 # Valor máximo del rango (en volts)
+vMin = 0.3 # Valor mínimo del rango (en volts)
+vMax = 0.6 # Valor máximo del rango (en volts)
 
 # Me quedo con los puntos entre vMin y vMax
 indicesAjuste = np.where((VBE > vMin) & (VBE < vMax))
@@ -71,14 +71,14 @@ coefAjuste = np.polyfit(VBE_ajuste, logIC_ajuste, deg=1) # Ajusto una recta y ob
 logIS = coefAjuste[1]
 IS = np.exp(logIS) # Corriente de saturación en inversa
 Vth_ajuste = 1/coefAjuste[0] # Tensión térmica
-IC_ajustada = -IS*np.exp(-VBE/Vth); # Obtengo la corriente del diodo utilizando el modelo exponencial y los parametros ajustados
-
+IC_ajustada = IS*np.exp(VBE/Vth); # Obtengo la corriente del diodo utilizando el modelo exponencial y los parametros ajustados
+ #cambio  -vbe por vbe sino el grafico ajustado no sale @santiagoponce
 print('Ajuste de IS = ', str(IS), 'A')
 print('Ajuste de Vth = ', str(Vth_ajuste), 'V')
 
 
 
-# %%%%%%%%%%%%%%%%%%%%%% Crea la figura y el eje
+#grafico en escala semilogaritmica con el rango de v y la curva ajustada
 
 fig, ax = plt.subplots()
 
@@ -86,12 +86,7 @@ fig, ax = plt.subplots()
 ax.semilogy(VBE, np.abs(mili * IB), label='$I_B$')
 ax.semilogy(VBE, np.abs(mili * IC), label='$I_C$: datos de simulación')
 ax.semilogy(VBE_ajuste, np.abs(mili * IC_ajuste), label='Datos elegidos para el ajuste')
-ax.semilogy(
-    VBE,
-    np.abs(mili * IC_ajustada),
-    label=f'Curva ajustada: $I_S$ = {IS:.3} A, $Vth$ = {Vth_ajuste:.3} V',
-    linestyle='--'
-)
+ax.semilogy(VBE,np.abs(mili * IC_ajustada),label=f'Curva ajustada: $I_S$ = {IS:.3} A, $Vth$ = {Vth_ajuste:.3} V',linestyle='--')
 
 # Límites, labels y deduplicación de leyenda
 ax.set_ylim(bottom=1e-8)
@@ -125,9 +120,8 @@ IC_salida = data[:, 1]; # Acá elegir la columna que represente los datos de cor
 ## Ajuste de IC vs VCE para obtener el parámetro VA
 
 # Hay que elegir los puntos a ajustar con una recta.
-# Seleccionar vMin y vMax para elegir un rango de puntos a ajustar por una recta
-# Este debe ser el rango de tensiones donde la curva en escala semilog se parece a una recta
-vMin = 0 # Valor mínimo del rango (en volts)
+# La region para el ajuste debe ser donde se encuentre en MAD   (vce> 0.3V)
+vMin = 0.25 # Valor mínimo del rango (en volts)
 vMax = 4 # Valor máximo del rango (en volts)
 
 # Me quedo con los puntos entre vMin y vMax

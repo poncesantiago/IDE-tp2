@@ -1,6 +1,6 @@
 LTspice 26.0.1 for Windows
 Circuit: C:\users\zosima\Documents\IDE\tp2\simulaciones\sim1\Draft1.net
-Start Time: Wed Apr 22 12:17:58 2026
+Start Time: Sat Apr 25 02:24:31 2026
 solver = Normal
 Maximum thread count: 2
 tnom = 27
@@ -10,7 +10,7 @@ C:\users\zosima\Documents\IDE\tp2\simulaciones\sim1\Draft1.net(4): Missing value
 
 VBE N002 0
 ^^^^^^^^^^
-Total elapsed time: 0.213 seconds.
+Total elapsed time: 0.172 seconds.
 
 Files loaded:
 C:\users\zosima\Documents\IDE\tp2\simulaciones\sim1\Draft1.net

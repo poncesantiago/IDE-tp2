@@ -112,7 +112,6 @@ plt.show()
 
 
 
-#Parte 2
 
 # %%%%%%%%%%%%%%%%%
 # Lectura del archivo
@@ -169,6 +168,14 @@ plt.legend([f'Datos de simulación, $VCEsat$ = 0.25 V','Datos elegidos para el a
 
 
 
+
+
+
+
+
+
+
+#parte2
 
 # %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 # Cargar los archivos para la simulación en temperatura
